@@ -1,0 +1,27 @@
+﻿@model InTheVision.Models.SettingsMv
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class='panel panel-default'>
+
+    <div class='panel-heading'>
+        <i class='icon-beer icon-large'></i>
+        <strong>Hoşgeldin, <span class="text-danger">@Session["logined"]</span></strong>
+        <div class='panel-tools'>
+
+        </div>
+    </div>
+    <div class='panel-body'>
+        Menüden gerekli işlemleri gerçekleştirebilirsiniz.<br /><br />
+
+        <div class="alert alert-info" role="alert">
+            Sisteme Kayıtlı Film Sayısı :  <b class="text-danger">@Model.getMovieCount()</b> Adet
+        </div>
+
+
+
+    </div>
+</div>
+

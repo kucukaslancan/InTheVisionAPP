@@ -1,0 +1,31 @@
+﻿@model InTheVision.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+    <form action="/Admin/Login" method="post" class="sign__form">
+
+        <a class="sign__logo">
+            <h2 style="color:#df506b;">CK | YÖNETİCİ GİRİŞİ</h2>
+        </a>
+        @if (ViewBag.error != null)
+        {
+    <h4 style="color:#fff;"> @ViewBag.error</h4>
+           
+            <br />
+        }
+        <div class="sign__group">
+            <input type="text" name="username" class="sign__input" placeholder="Email">
+        </div>
+
+        <div class="sign__group">
+            <input type="password" name="password" class="sign__input" placeholder="Password">
+        </div>
+
+
+
+        <input class="sign__btn" type="submit" value="Login" />
+
+    </form>
+

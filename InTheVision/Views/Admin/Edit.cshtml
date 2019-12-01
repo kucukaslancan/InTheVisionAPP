@@ -1,0 +1,119 @@
+﻿@model InTheVision.Models.Movie
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+ 
+
+@using (Html.BeginForm())
+{
+   
+    
+    <div class="form-horizontal">
+        <div class="text-center">
+            <img width="150" height="200"  src="@Model.mPoster" class="rounded" alt="...">
+        </div>
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Film Adı</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Film Türü</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mGenre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mGenre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Yayın Yılı</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mReleaseYear, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mReleaseYear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Süre</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ülke</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mCountry, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mCountry, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Fragman</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mTrailer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mTrailer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Film Puanı</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mImdb, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mImdb, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Film Afişi</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mPoster, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mPoster, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="type" class="form-control" id="sel1">
+                    <option @if (Model.type == 0) { <text>selected</text>} value="0">Vizyonda</option>
+                    <option @if (Model.type == 1) { <text>selected</text>} value="1">Tavsiye</option>
+                    <option @if (Model.type == 2) { <text>selected</text>} value="2">Şef Önerisi</option>
+                    <option @if (Model.type == 3) { <text>selected</text>} value="3">Haftanın Keşfi</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Açıklama</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.mDescription, new { @rows = "10", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.mDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

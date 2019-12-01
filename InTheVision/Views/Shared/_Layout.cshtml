@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @Html.Partial("_MetaCode")
+    <title>Ne İzlesem?</title>
+
+</head>
+<body class="body">
+    @Html.Partial("_Header")
+  
+    <!-- end header -->
+    <!-- home -->
+    <section class="home">
+        <!-- home bg -->
+        <div class="owl-carousel home__bg">
+            <div class="item home__cover" data-bg="app/img/home/home__bg.jpg"></div>
+            <div class="item home__cover" data-bg="app/img/home/home__bg2.jpg"></div>
+            <div class="item home__cover" data-bg="app/img/home/home__bg3.jpg"></div>
+            <div class="item home__cover" data-bg="app/img/home/home__bg4.jpg"></div>
+        </div>
+        <!-- end home bg -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="home__title"><b>VİZYONDAKİ</b> POPÜLER FİLMLER</h1>
+
+                    <button class="home__nav home__nav--prev" type="button">
+                        <i class="icon ion-ios-arrow-round-back"></i>
+                    </button>
+                    <button class="home__nav home__nav--next" type="button">
+                        <i class="icon ion-ios-arrow-round-forward"></i>
+                    </button>
+                </div>
+
+                <div class="col-12">
+                    <div id="can" class="owl-carousel home__carousel">
+                        @Html.Action("getThisSeason", "Partials")
+                         
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end home -->
+    <!-- content -->
+    <section class="content">
+        <div class="content__head">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- content title -->
+                        <h2 class="content__title">Ne İzlesem?</h2>
+                        <!-- end content title -->
+                        <!-- content tabs nav -->
+                        <ul class="nav nav-tabs content__tabs" id="content__tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Tavsiyeler</a>
+                            </li>
+
+                            
+
+                            
+                        </ul>
+                        <!-- end content tabs nav -->
+                        <!-- content mobile tabs nav -->
+                        <div class="content__mobile-tabs" id="content__mobile-tabs">
+                            <div class="content__mobile-tabs-btn dropdown-toggle" role="navigation" id="mobile-tabs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <input type="button" value="New items">
+                                <span></span>
+                            </div>
+
+                            <div class="content__mobile-tabs-menu dropdown-menu" aria-labelledby="mobile-tabs">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" id="1-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Tavsiyeler</a></li>
+
+                                     
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- end content mobile tabs nav -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- content tabs -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="1-tab">
+                    <div class="row">
+                       @Html.Action("getRecommended","Partials")
+                       
+                    </div>
+                </div>
+ 
+
+             
+
+              
+            </div>
+            <!-- end content tabs -->
+        </div>
+    </section>
+    <!-- end content -->
+    <!-- expected premiere -->
+     
+    <!-- end expected premiere -->
+    <!-- partners -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <!-- section title -->
+                 
+                <!-- end section title -->
+                <!-- section text -->
+                <div class="col-12">
+                    <p class="section__text section__text--last-with-margin">
+                    @RenderBody()
+                    </p>
+                </div>
+                <!-- end section text -->
+                
+            </div>
+        </div>
+    </section>
+    <!-- end partners -->
+    <!-- footer -->
+    @Html.Partial("_Footer")
+    <!-- end footer -->
+    <!-- JS -->
+
+ 
+    <script src="app/js/jquery-3.3.1.min.js"></script>
+    <script src="app/js/bootstrap.bundle.min.js"></script>
+    <script src="app/js/owl.carousel.min.js"></script>
+    <script src="app/js/jquery.mousewheel.min.js"></script>
+    <script src="app/js/jquery.mCustomScrollbar.min.js"></script>
+    <script src="app/js/wNumb.js"></script>
+    <script src="app/js/nouislider.min.js"></script>
+    <script src="app/js/plyr.min.js"></script>
+    <script src="app/js/jquery.morelines.min.js"></script>
+    <script src="app/js/photoswipe.min.js"></script>
+    <script src="app/js/photoswipe-ui-default.min.js"></script>
+    <script src="app/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+﻿@model List<InTheVision.Models.Movie>
+ 
+@{
+    ViewBag.Title = "listMovies";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+
+<div class="panel panel-default grid">
+    <div class="panel-heading">
+        <i class="icon-table icon-large"></i>
+        Tüm Filmler
+
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Adı</th>
+                <th>Açıklama</th>
+                <th>IMDB</th>
+                <th>Menşei</th>
+                <th>Yıl</th>
+                <th>Type</th>
+                <th class="actions">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img width="80" height="100" src="@item.mPoster" /></td>
+                    <td>@item.mName</td>
+                    <td>@item.mDescription.Substring(0, 15) ...</td>
+                    <td>@item.mImdb</td>
+                    <td>@item.mCountry</td>
+                    <td>@item.mReleaseYear</td>
+                    <td>
+                        @switch (item.type)
+                        {
+                            case 0:
+                                <span class="text-danger">Vizyonda</span>
+                                break;
+                            case 1:
+                                <span class="text-danger">Tavsiye</span>
+                                break;
+                            case 2:
+                                <span class="text-danger">Şef Önerisi</span>
+                                break;
+                            case 3:
+                                <span class="text-danger">Haftanın Keşfi</span>
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                    </td>
+                    <td class="action">
+                        <a class="btn btn-info" href="/Admin/Edit/@item.id">
+
+                            <i class="icon-edit"></i>
+                        </a>
+                        <a class="btn btn-danger" href="/Admin/deleteMovie/@item.id">
+                            <i class="icon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+
+
+        </tbody>
+    </table>
+    <div class="panel-footer">
+        <ul class="pagination pagination-sm">
+           
+        </ul>
+         
+    </div>
+</div>
+

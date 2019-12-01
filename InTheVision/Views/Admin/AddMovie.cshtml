@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "AddMovie";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="icon-edit icon-large"></i>
+           Yeni Film Ekle
+        </div>
+         
+            <div class="btn-group">
+                <a id="can" class="btn"  >
+                    <i class="icon-refresh"></i>
+                    Rastgele Vizyondaki Filmleri Çek
+                </a>
+               
+            </div>
+       
+        <div class="panel-body">
+            <form action="/Admin/AddMovie" method="post" role="form">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="exampleInputEmail1">Film Adı</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" id="filmadi" name="mName" placeholder="Film Adı">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="exampleInputEmail1">Film Türü</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" id="filmturu" name="mGenre" placeholder="Film Türü">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="exampleInputEmail1">Film Yılı</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" id="filmyili" name="mReleaseYear" placeholder="Film Yılı">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="exampleInputEmail1">Film Süresi</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" id="filmsuresi" name="mTime" placeholder="Film Süresi">
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="exampleInputEmail1">Film Menşei</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" id="filmmensei" name="mCountry" placeholder="Film Menşei">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="exampleInputEmail1">Film Fragmanı</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" id="filmfragman" name="mTrailer" placeholder="Film Fragman">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="exampleInputEmail1">Film Puanı</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" id="filmpuan" name="mImdb" placeholder="Film Puanı">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+
+                        <div class="input-group">
+                            <label for="sel1">Type</label>
+                            <select name="type" class="form-control" id="sel1">
+                                <option value="0">Vizyonda</option>
+                                <option value="1">Tavsiye</option>
+                                <option value="2">Şef Önerisi</option>
+                                <option value="3">Haftanın Keşfi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <hr />
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="comment">Film Açıklaması:</label>
+                        <textarea class="form-control" name="mDescription" rows="5" id="filmdesc"></textarea>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <label for="filmposter">Afiş:</label>
+                        <input type="text" class="form-control" name="mPoster" id="filmposter"/>
+                        
+                    </div>
+
+                </div>
+
+                    <br />
+                    <button type="submit" class="btn btn-danger">Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#can").click(function () {
+                
+            $.ajax({
+            url: "/Partials/randomMovie",
+            type: "POST",
+            dataType: "json", 
+                success: function (resp) {
+                    
+                    var obj = jQuery.parseJSON(resp);
+                    $('#filmadi').val(obj.name);
+                    $('#filmyili').val(obj.year);
+                    $('#filmturu').val(obj.film_type);
+                    $('#filmpuan').val(obj.point);
+                    $('#filmposter').val(obj.image);
+                    $('#filmdesc').val(obj.desc);
+
+            },
+            error: function (error) {}
+            });
+
+
+        });
+
+    });
+
+
+</script>
