@@ -4,7 +4,9 @@
 * text=auto
 
 Scripts/* linguist-vendored
+*.js linguist-vendored=false
 InTheVisionAPP/InTheVision/Scripts/* linguist-vendored
+*.js linguist-vendored=false
 
 ###############################################################################
 # Set default behavior for command prompt diff.
