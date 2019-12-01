@@ -3,6 +3,9 @@
 ###############################################################################
 * text=auto
 
+Scripts/*
+InTheVisionAPP/InTheVision/Scripts/*
+
 ###############################################################################
 # Set default behavior for command prompt diff.
 #
