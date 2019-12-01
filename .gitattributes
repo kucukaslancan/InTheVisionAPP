@@ -3,8 +3,8 @@
 ###############################################################################
 * text=auto
 
-Scripts/*
-InTheVisionAPP/InTheVision/Scripts/*
+Scripts/* linguist-vendored
+InTheVisionAPP/InTheVision/Scripts/* linguist-vendored
 
 ###############################################################################
 # Set default behavior for command prompt diff.
